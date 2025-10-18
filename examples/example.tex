@@ -1,0 +1,42 @@
+\documentclass{article}
+
+\usepackage{covconv}
+
+\title{Convolutions with shedding profiles}
+
+
+\begin{document}
+
+
+
+
+Inline: \( f \conv g \)
+
+Display:
+\[
+  f (\conv g)(t)
+\]
+
+
+% Boring and plain
+Let $f^w = f * g$ be the convolution of $f$ with the shedding profile $g$:
+
+\[
+  (f * g)(t) = \int_0^\infty f(t-\tau) g(\tau)d\tau
+\]
+
+\EnableCoronaAsterisk
+
+% Really cool 
+Let $f^w = f * g$ be the convolution of $f$ with the shedding profile $g$:
+\[
+  (f * g)(t) = \int_0^\infty f(t-\tau) g(\tau)d\tau
+\]
+
+
+\DisableCoronaAsterisk
+
+
+
+
+\end{document}
