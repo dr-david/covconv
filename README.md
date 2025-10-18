@@ -2,7 +2,7 @@
 A viral new operator 
 
 
-## Quick start
+## Impress your coauthors quick start
 
 1. Download [`covconv.sty`](covconv.sty) into your project folder.
 2. Add in your preamble:
