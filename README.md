@@ -25,13 +25,14 @@ $$
 
 Do this:
 ```latex
-\EnableCoronaAsterisk
 % Really cool 
+\EnableCoronaAsterisk
 Let $f^w = f * g$ be the convolution of $f$ with the shedding profile $g$:
 
 $$
   (f * g)(t) = \int_0^\infty f(t-\tau) g(\tau)d\tau
 $$
+\DisableCoronaAsterisk % if you must
 ```
 <p align="center">
   <img src="examples/output2.png" alt="Example convolution" width="700"/>
