@@ -10,7 +10,7 @@ A viral new operator
 ```latex
    \usepackage{covconv}
 ```
-Now instead of doing this in your papers about viral shedding:
+Now instead of doing this in your paper about viral shedding:
 ```latex
 % Boring and plain
 Let $f^w = f * g$ be the convolution of $f$ with the shedding profile $g$:
@@ -37,3 +37,4 @@ $$
   <img src="examples/output2.png" alt="Example convolution" width="700"/>
 </p>
 
+You can now submit your paper to more prestigious venues. 
