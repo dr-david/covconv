@@ -1,0 +1,52 @@
+% coronaconv.sty  --  v0.2  (2025/10/18)
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{covconv}[2025/10/18 v0.2 Coronavirus convolution symbol]
+
+\RequirePackage{tikz}
+\usetikzlibrary{calc}
+
+\makeatletter
+
+% ---- User-tweakable settings (use ex units; no arithmetic in TeX) ----
+% Redefine these with \renewcommand in your preamble if you like.
+\newcommand*\coronaconvSpikes{8}     % integer
+\newcommand*\coronaconvInner{0.45ex} % core radius
+\newcommand*\coronaconvSpike{0.30ex} % spike length beyond core
+\newcommand*\coronaconvHead{0.10ex}  % small circle radius at tip
+\newcommand*\coronaconvLine{0.10ex}  % line width
+
+% Draw the symbol using current math style size via \mathchoice
+\newcommand*\corona@draw{%
+  \tikz[baseline={(0,-0.5ex)}, line width=\coronaconvLine]{
+    \node (c) at (0,0) {};
+    % core
+    \draw (0,0) circle[radius=\coronaconvInner];
+    % spikes with tips
+    \pgfmathsetmacro\step{360/\coronaconvSpikes}
+    \foreach \a in {0,\step,...,359} {
+      \draw (\a:\coronaconvInner) -- (\a:{\coronaconvInner+\coronaconvSpike});
+      \draw (\a:{\coronaconvInner+\coronaconvSpike}) circle[radius=\coronaconvHead];
+    }
+  }%
+}
+
+\newcommand*\coronasymb{%
+  \mathchoice
+    {\mathbin{\corona@draw}}% displaystyle
+    {\mathbin{\corona@draw}}% textstyle
+    {\mathbin{\corona@draw}}% scriptstyle
+    {\mathbin{\corona@draw}}% scriptscriptstyle
+}
+
+% Public names
+\newcommand*\conv{\mathbin{\coronasymb}}
+\newcommand*\coronaconv{\mathbin{\coronasymb}}
+
+% Optional: temporarily map * to our symbol in math mode
+\newcommand*\EnableCoronaAsterisk{%
+  \begingroup\lccode`~=`*\lowercase{\endgroup\def~}{\mathbin{\coronasymb}}%
+  \mathcode`*="8000\relax
+}
+\newcommand*\DisableCoronaAsterisk{\mathcode`*="2203\relax}
+
+\makeatother
