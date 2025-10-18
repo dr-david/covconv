@@ -10,15 +10,30 @@ A viral new operator
 ```latex
    \usepackage{covconv}
 ```
-
-Then, use in math or inline math:
+Now instead of doing this in your papers about viral shedding:
 ```latex
-$$ f \conv g $$ 
-```
+% Boring and plain
+Let $f^w = f * g$ be the convolution of $f$ with the shedding profile $g$:
 
-You can also replace the * operator temporarily:
+$$
+  (f * g)(t) = \int_0^\infty f(t-\tau) g(\tau)d\tau
+$$
 ```
+<p align="center">
+  <img src="examples/ouput1.png" alt="Example convolution" width="700"/>
+</p>
+
+Do this:
+```latex
 \EnableCoronaAsterisk
-  $$ (f * g)(t) $$
-\DisableCoronaAsterisk
+% Really cool 
+Let $f^w = f * g$ be the convolution of $f$ with the shedding profile $g$:
+
+$$
+  (f * g)(t) = \int_0^\infty f(t-\tau) g(\tau)d\tau
+$$
 ```
+<p align="center">
+  <img src="examples/output2.png" alt="Example convolution" width="700"/>
+</p>
+
